@@ -1,0 +1,169 @@
+.cabecalho__menu-hamburguer {
+    width: 24px; /*largura*/
+    height: 24px; /*altura*/
+    background-image: url("../ASSETS/Menu.svg"); /*imagem de fundo -- os .. para voltar e pocurar a pasta styles */
+    background-repeat: no-repeat; /*para não repetir a imagem do menu*/
+    background-position: center; /*colocando as imagens na posição de centro*/
+    display:inline-block; /*o inline-block permite os ajustes de altura senão ficaria só em linha */
+}
+
+.container__botao:checked ~ .container__rotulo > .cabecalho__menu-hamburguer { /*uso de combinadores*/
+    background-image: url("../ASSETS/Menu\ Aberto.svg");
+}
+
+.container__botao:checked ~ .container__rotulo {
+    background: var(--blue-degrade)
+}
+
+.cabecalho {
+    background-color: var(--white); /*cor de fundo do cabeçalho*/
+    display: flex;
+    justify-content: space-between; /*espaço entre as div igualmente*/
+    align-items: center; /*centralizando os itens igualmente*/
+    position: relative; /*libera a opção de colocar outras opções dos 4 lados*/
+}
+
+.container { /*para alinhar todos os itens no centro dentro da div*/
+    display: flex;
+    align-items: center;
+}
+
+.container__imagem {
+    padding: 1em;
+}
+
+.lista-menu {
+    display: none; /*para desaparacer com os itens da lista visiveis sem o click*/
+    position: absolute;
+    top: 100%; /*saiu 100% do cabeçalho ficando abaixo da imagem do menu*/
+    width: 60vw;
+}
+
+.container__botao:checked~.lista-menu { /*o checked detecta se esta preenchida o checkbox usado no html*/
+    display: block;
+}
+
+.lista-menu__titulo,
+.lista-menu__item {
+    padding: 1em;
+    background-color: var(--white);
+}
+
+.lista-menu__titulo {
+    color: var(--orange); /*color segue para mudar a cor da fonte apenas*/
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.lista-menu__item {
+    background: var(--blue-degrade);
+    -webkit-background-clip: text; /*webkit para forçar o navegador a ver os estilos*/
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase; /*para transformar as letras em maisuculas*/
+}
+
+.container__botao { /*para retirar o marcador do checkedbox*/
+    display: none;
+}
+
+.container__titulo {
+    display: none;
+}
+
+.opcoes {
+    display: none;
+}
+
+.container__texto {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .container__titulo,
+    .container__titulo--negrito {
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+    }
+
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo--negrito {
+        font-weight: 700;
+    }
+
+    .opcoes {
+        display: flex;
+    }
+
+    .opcoes__item {
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+
+    .opcoes__link {
+        text-decoration: none;
+        color:var(--black)
+    }
+
+    .container__imagem--transparente {
+        display: none;
+    }
+
+    .cabecalho__menu-hamburguer {
+        display: none;
+    }
+
+    .opcoes__botoes:checked~.lista-menu { /* o checked é uma pseudo-classes*/
+        display: block;
+        width: auto;
+    }
+
+    .opcoes__botoes {
+        display: none;
+    }
+
+    .opcoes__botoes:checked~ .opcoes__rotulo > .opcoes__item { /*uso de combinadores */
+        background: var(--blue-degrade);
+        color: var(--white);
+    }
+
+    .opcoes__item {
+        padding: 2em 1em;
+    }
+
+    .lista-menu__item:hover { /* o hover é uma pseudo-classes*/
+        background: var(--blue-degrade);
+    }
+
+    .lista-menu__item:hover>.lista-menu__link {
+        -webkit-text-fill-color: var(--white);
+        text-decoration: none;
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--black);
+    }
+
+    .container__texto {
+        display: block;
+    }
+
+    .cabecalho {
+        padding: 0 2em;
+    }
+
+    .opcoes {
+        margin-right: auto; /*tag usada para empurrar os itens para a direita preenchendo o espaço em branco*/
+    }
+
+}

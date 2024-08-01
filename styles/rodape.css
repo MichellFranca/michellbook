@@ -1,0 +1,58 @@
+hr {
+    margin: 0;
+}
+
+.rodape {
+    background-color: var(--white);
+    padding: 1em;
+}
+
+.lista-rodape { /*para na mudança de dispositivo não aparecer*/
+    display: none;
+}
+
+@media screen and (min-width: 1024px) { /*site responsivo parte do código para mudança de acesso da tela*/
+    .rodape {
+        display: flex;
+        justify-content: space-around; /*cria espaços iguais entre os space itens e a borda da tela*/
+    }
+
+    .lista-rodape {
+        display: block; /* para na mudança de dispositivo bloquear a visualização anterior*/
+    }
+
+
+    .lista-rodape__item {
+        display: flex;
+        align-items: center;
+        margin: 0.6em 0;
+    }
+
+
+    .lista-rodape__link {
+        color: var(--gray);
+        text-decoration: none;
+        margin-left: 0.6em;
+    }
+
+    .lista-rodape__titulo {
+        font-size: 14px;
+        color: var(--gray-claro);
+    }
+
+    .rodape__titulo {
+        font-size: 24px;
+    }
+
+}
+
+@media screen and (min-width: 1728px){
+    .lista-rodape {
+        border-left: 1px solid var(--gray-claro);
+        padding-left: 1em;
+    }
+
+    .rodape {
+        padding: 3em 0;
+    }
+}
